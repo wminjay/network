@@ -52,8 +52,8 @@ email=$2
 #update system
 echo -e $green"Updating system..."$reset
 apt update -y
-apt upgrade -y
-apt autoremove -y
+# apt upgrade -y
+# apt autoremove -y
 
 #install dependency
 echo -e $green"Installing dependency..."$reset
@@ -82,7 +82,7 @@ echo -e $green"Installing acme.sh..."$reset
 #install acme.sh
 curl https://get.acme.sh | sh
 #install cert
-/root/.acme.sh/acme.sh --register-account -m $Email
+/root/.acme.sh/acme.sh --register-account -m $email
 /root/.acme.sh/acme.sh --issue -d $domain --nginx /etc/nginx/conf.d/trojan.conf
 
 
